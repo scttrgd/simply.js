@@ -9,6 +9,8 @@ simply.on('singleClick', function(e) {
   }
   localStorage.setItem('count', count);
 });
-Pebble.showSimpleNotificationOnPebble('Hello!',
-  'Notifications from JavaScript? Welcome to the future!');
-simply.text({ title: 'Counter', subtitle: count });
+
+ajax({ url: 'https://data.bathhacked.org/resource/6e9r-8trr.json' }, function(data){
+  var headline = data[1];
+  simply.title(headline);
+});
