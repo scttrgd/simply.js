@@ -9,5 +9,8 @@ simply.on('singleClick', function(e) {
   }
   localStorage.setItem('count', count);
 });
-
+ajax({ url: 'http://simplyjs.io' }, function(data){
+  var headline = data.match(/<h1>(.*?)<\/h1>/)[1];
+  simply.title(headline);
+});
 simply.text({ title: 'Counter', subtitle: count });
